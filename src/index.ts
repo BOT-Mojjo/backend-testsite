@@ -18,7 +18,6 @@ const server = new Elysia()
 })
 .get("/forum/", ({headers, set}) => {
     set.status = 400
-    console.log(headers.last_id, headers.page_amount)
     if (+headers.last_id! > 0) {
         set.status = 200
         return Post.find({_id: { $gt: headers.last_id }}).limit(+headers.page_amount! ?? 20).exec()
@@ -28,7 +27,6 @@ const server = new Elysia()
     }
 })
 .get("/post/:id", async ({set, params: {id}}) =>{
-    console.log(id);
     set.status = 400
     let a = await Post.findById(id).exec()
     set.status = 200
@@ -36,7 +34,6 @@ const server = new Elysia()
     return a?.toJSON()
 })
 .post("/post/:id", async ({set, params: {id}}) =>{
-    console.log(id);
     set.status = 400
     let a = await Post.findByIdAndUpdate(id, {$inc: { post_rating: 1} }).exec()
     set.status = 200
