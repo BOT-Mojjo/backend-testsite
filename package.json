@@ -1,0 +1,17 @@
+{
+  "name": "backend-test",
+  "scripts": {
+    "dev": "bun src/index.ts --watch"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^1.0.2",
+    "@elysiajs/html": "^1.0.2",
+    "@kitajs/ts-html-plugin": "^4.0.1",
+    "elysia": "^1.0.22",
+    "mongoose": "^8.4.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "@types/bun": "^1.1.3"
+  }
+}
